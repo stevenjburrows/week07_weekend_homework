@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <coins-list :coins='coins'></coins-list>
   </div>
 </template>
-
+ 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import coinsList from './components/coinsList.vue'
+
 
 export default {
-  name: 'App',
+  data(){
+    return {
+      coins: [],
+
+    }
+  },
   components: {
-    HelloWorld
+    'coins-list': coinsList,
+  },
+  mounted(){
+    fetch('https://api.coinpaprika.com/v1/coins')
+    .then(res => res.json())
+    .then(coinRes => this.coins = coinRes)
+
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+h1 {
+  color: red;
 }
 </style>
+
+
