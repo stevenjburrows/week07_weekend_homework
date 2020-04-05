@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.coinD">
+  <div v-if="this.coinD" id="">
       <h1>Coin Details</h1>
     <h2>Name:  {{this.coinD.name}}</h2>
     <p>ID: {{this.coinD.id}}</p>
@@ -19,7 +19,7 @@ export default {
 
    data() {
         return{
-            coinD: {}
+            coinD: null
         }
     },
 
@@ -41,6 +41,15 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+button {
+    background-color: lightskyblue;
+    font-size: 1rem;;
+    
+
+}
+button:hover {
+        background-color:cornflowerblue;
+}
 
 </style>

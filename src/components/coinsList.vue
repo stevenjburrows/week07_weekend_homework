@@ -1,19 +1,14 @@
 <template>
   <div>
       <h2>Coin list</h2>
-      <!-- <ul>
-         <li v-for="(coin, index) in coins" :coin="coin" :key="index">{{coin.name}}</li>
-         </ul> -->
+
          <form v-on:submit.prevent>
              <select name="coins" v-on:change="displayInfo" v-model="selectedCoin">
                  <option disabled selected value> -- select a coin -- </option>
                  <option v-for="(coin, index) in coins" :value="coin" :key="index" >{{coin.name}}</option>
                 
              </select>
-              <!-- <button v-on:click="displayInfo" >select</button> -->
-            <!-- <coin-selected v-if="coin"> 
-                <p>{{coin.name}}</p>
-                 </coin-selected> -->
+
          </form>
     
 
@@ -37,8 +32,14 @@ export default {
     }
 }
 </script>
-console.log(beers)
+
+
 <style scoped>
+form, h2 {
+    display: flex;
+    justify-content: center;
+}
+
 
 li {
     list-style: none;
